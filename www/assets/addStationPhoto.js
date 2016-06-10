@@ -3,8 +3,8 @@ var fs = require('fs');
 fs.readdir('./www/assets/stationPhotos', function(err,files){
   var stations = require('./stations.js');
   stations.forEach(function(current){
-    if(files.indexOf(current.site_id + '.jpg') !== -1){
-      current.photolink = "./../assets/stationPhotos/" + current.site_id + '.jpg';
+    if(current.photolink !== null){
+      current.photolink = "https://s3-us-west-2.amazonaws.com/bikesharesites/stationPhotos/" + current.site_id + '.jpg';
     }
   });
   console.log(stations);
